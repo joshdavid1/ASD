@@ -9,47 +9,65 @@ Topic: jQuery, HTML, and CSS framework files -->
 <html lang="en">
 <head>
 
-	<meta charset="utf-8">
-	
-	<title>Title</title>
-	
-	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!-- Mobile IE needs ClearType for smoothing fonts -->
-	<meta http-equiv="cleartype" content="on">
-	
-	<!-- StyleSheets under here -->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<link rel="stylesheet" href="css/kenmore.css" />
-	<link rel="stylesheet" href="css/style.css" />
-	
-	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="JS/libs/modernizr.custom.min.js"></script>
+<!-- meta tags go here -->
 
 </head> 
 <body> 
-	<div data-role="page" id="home">
+	<div id="main">
 
-		<div data-role="header" data-position="fixed">
-			<h1>Header</h1>
-		</div><!-- /header -->
+		<header>
+			<h1>Pavel's Ladder</h1>
+		</header><!-- title -->
 		
-		<img src="images/SampleFeature.jpg" id="featureCenter"> <!-- Feature -->
+		<img src="images/SampleFeature.jpg"> <!-- Feature image goes here -->
 		
-		<div data-role="content"><!-- #addItem -->
-			<a href="#" >Links</a>
-			<p>Content</p>			
-		</div><!-- /content -->
-		
-		<div data-role="footer">
-		
-		</div>
+		<p>Maximize your workout!</p>
+		<!-- horizontal line goes here -->
+
+		<nav><!-- navigation -->
+			<ul>
+				<li><a href="#addPage">Add</a></li>
+				<li><a href="#options">Options</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+		</nav>
 
 	</div>
-</div>
+
+	<div id="addPage">
+		
+		<header>
+			<h1>Add a Rung</h1>
+		</header><!-- title -->
+
+		<nav><!-- form-->
+			<ul>
+				<li><label for="name">Exercise name:</label>
+					<input type="text" id="name"></input></li>
+				<li><label for="interval">Interval (in times/day):</label>
+					<input type="text" id="interval"></input></li>
+				<li><label for="goal">Make this a goal (yes or no):</label>
+					<input type="text" id="goal"></input></li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<div id="options">
+		
+		<header>
+			<h1>Options</h1>
+		</header><!-- title -->
+
+		<nav><!-- navigation -->
+			<ul>
+				<li><a href="#">Push notifications</a></li>
+				<li><a href="#">Fitness resources</a></li>
+				<li><a href="#">Discover and connect</a></li>
+			</ul>
+		</nav>
+
+	</div>
 
 	<!-- JavaScript under here -->
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
