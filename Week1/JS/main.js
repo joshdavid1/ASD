@@ -1,9 +1,17 @@
 /*
 Author: Josh Wilcox
 Class: ASD with Doug Arley (March '13)
-Week: Project 1
-Topic: jQuery, HTML, and CSS framework files
+Week: Project 2
+Topic: converting from VFW CRUD to jQuery and JQM.
 */
-$(document).on('pageinit',function() {
-        // Put jQuery in here to fire it after the page loads.
-    });
+$('#main').on('pageinit',function() {
+        // Put jQuery in here for the home page.
+});
+
+$('#addPage').on('pageinit',function() {
+        // Put jQuery in here for the add page, which contains the form.
+});
+
+$('#options').on('pageinit',function() {
+        // Put jQuery in here for the options page.
+});
