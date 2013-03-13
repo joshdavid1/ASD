@@ -46,7 +46,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 			<ul>
 				<li><a href="#addPage">Add</a></li>
 				<li><a href="#options">Options</a></li>
-				<li><a href="#">About</a></li>
+				<li><a href="#about">About</a></li>
 			</ul>
 		</nav>
 
@@ -54,7 +54,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 
 	<div data-role="page" id="addPage">
 		
-		<header>
+		<header data-role="header">
 			<h1>Add a Rung</h1>
 		</header><!-- title -->
 
@@ -73,7 +73,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 
 	<div data-role="page" id="options">
 		
-		<header>
+		<header data-role="header">
 			<h1>Options</h1>
 		</header><!-- title -->
 
@@ -81,7 +81,70 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 			<ul>
 				<li><a href="#">Push notifications</a></li>
 				<li><a href="#">Fitness resources</a></li>
-				<li><a href="#">Discover and connect</a></li>
+				<li><a href="#discoverAndConnect">Discover and connect</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<div data-role="page" id="discoverAndConnect">
+		
+		<header data-role="header">
+			<h1>Discover and Connect!</h1>
+		</header><!-- title -->
+
+		<nav><!-- navigation -->
+			<ul>
+				<li><a href="#aboutApp">About The App</a></li>
+				<li><a href="#aboutAuthor">About The Author</a></li>
+				<li><a href="#discoverAndConnect">Discover and connect</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<div data-role="page" id="aboutApp">
+		
+		<header data-role="header">
+			<h1>About The App</h1>
+		</header><!-- title -->
+
+		<nav><!-- navigation -->
+			<p>This app is intended to help you maximize your workout efficiency by spreading exercise reps out throughout the day.</p>
+			<ul>
+				<li>Link 1</li>
+				<li>Link 2</li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<div data-role="page" id="aboutAuthor">
+		
+		<header data-role="header">
+			<h1>About The Author</h1>
+		</header><!-- title -->
+
+		<nav><!-- navigation -->
+			<p>My name is Josh Wilcox. I am a student at Full Sail University in the Mobile Development BS degree program.</p>
+			<ul>
+				<li><a href="#connect">Make social connections with me here!</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<div data-role="page" id="connect">
+		
+		<header data-role="header">
+			<h1>Get Social</h1>
+		</header><!-- title -->
+
+		<nav><!-- navigation -->
+			<ul>
+				<li><a href="www.twitter.com/jdwilcox1">Follow me on Twitter</a></li>
+				<li><a href="www.facebook.com/wilcox.josh">Add me on Facebook</a></li>
+				<li><a href="http://lnkd.in/fMJ-Vx">Connect on LinkedIn</a></li>
 			</ul>
 		</nav>
 
