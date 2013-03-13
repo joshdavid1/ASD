@@ -31,7 +31,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 
 </head> 
 <body> 
-	<div data-role="page" id="main">
+	<article data-role="page" id="main">
 
 		<header>
 			<h1>Pavel's Ladder</h1>
@@ -42,23 +42,23 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 		<p>Maximize your workout!</p>
 		<!-- horizontal line goes here -->
 
-		<nav><!-- navigation -->
+		<section data-role="content"><!-- navigation -->
 			<ul data-role="listview">
 				<li><a href="#addPage">Add</a></li>
 				<li><a href="#options">Options</a></li>
 				<li><a href="#aboutApp">About</a></li>
 			</ul>
-		</nav>
+		</section>
 
-	</div>
+	</article>
 
-	<div data-role="page" id="addPage">
+	<article data-role="page" id="addPage">
 		
 		<header data-role="header">
 			<h1>Add a Rung</h1>
 		</header><!-- title -->
 
-		<nav><!-- form-->
+		<section data-role="content"><!-- form-->
 			<ul data-role="listview">
 				<li><label for="name">Exercise name:</label>
 					<input type="text" id="name"></input></li>
@@ -67,87 +67,87 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 				<li><label for="goal">Make this a goal (yes or no):</label>
 					<input type="text" id="goal"></input></li>
 			</ul>
-		</nav>
+		</section>
 
-	</div>
+	</article>
 
-	<div data-role="page" id="options">
+	<article data-role="page" id="options">
 		
 		<header data-role="header">
 			<h1>Options</h1>
 		</header><!-- title -->
 
-		<nav><!-- navigation -->
+		<section data-role="content"><!-- navigation -->
 			<ul data-role="listview">
 				<li><a href="#">Push notifications</a></li>
 				<li><a href="#">Fitness resources</a></li>
 				<li><a href="#discoverAndConnect">Discover and connect</a></li>
 			</ul>
-		</nav>
+		</section>
 
-	</div>
+	</article>
 
-	<div data-role="page" id="discoverAndConnect">
+	<article data-role="page" id="discoverAndConnect">
 		
 		<header data-role="header">
 			<h1>Discover and Connect!</h1>
 		</header><!-- title -->
 
-		<nav><!-- navigation -->
+		<section data-role="content"><!-- navigation -->
 			<ul data-role="listview">
 				<li><a href="#aboutApp">About The App</a></li>
 				<li><a href="#aboutAuthor">About The Author</a></li>
 			</ul>
-		</nav>
+		</section>
 
-	</div>
+	</article>
 
-	<div data-role="page" id="aboutApp">
+	<article data-role="page" id="aboutApp">
 		
 		<header data-role="header">
 			<h1>About The App</h1>
 		</header><!-- title -->
 
-		<nav><!-- navigation -->
+		<section data-role="content"><!-- navigation -->
 			<p>This app is intended to help you maximize your workout efficiency by spreading exercise reps out throughout the day.</p>
 			<ul data-role="listview">
 				<li>Link 1</li>
 				<li>Link 2</li>
 			</ul>
-		</nav>
+		</section>
 
-	</div>
+	</article>
 
-	<div data-role="page" id="aboutAuthor">
+	<article data-role="page" id="aboutAuthor">
 		
 		<header data-role="header">
 			<h1>About The Author</h1>
 		</header><!-- title -->
 
-		<nav><!-- navigation -->
+		<section data-role="content"><!-- navigation -->
 			<p>My name is Josh Wilcox. I am a student at Full Sail University in the Mobile Development BS degree program.</p>
 			<ul data-role="listview">
 				<li><a href="#connect">Make social connections with me here!</a></li>
 			</ul>
-		</nav>
+		</section>
 
-	</div>
+	</article>
 
-	<div data-role="page" id="connect">
+	<article data-role="page" id="connect">
 		
 		<header data-role="header">
 			<h1>Get Social</h1>
 		</header><!-- title -->
 
-		<nav><!-- navigation -->
+		<section data-role="content"><!-- navigation -->
 			<ul data-role="listview">
 				<li><a href="http://www.twitter.com/jdwilcox1">Follow me on Twitter</a></li>
 				<li><a href="http://www.facebook.com/wilcox.josh">Add me on Facebook</a></li>
 				<li><a href="http://lnkd.in/fMJ-Vx">Connect on LinkedIn</a></li>
 			</ul>
-		</nav>
+		</section>
 
-	</div>
+	</article>
 
 	<!-- JavaScript under here -->
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
