@@ -62,21 +62,30 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 			<h1>Add a Rung</h1>
 		</header><!-- title -->
 
+		<section data-role="content">
+			<input id="clearDataButton" value="Erase All Stored Data" />
+		</section>
+
 		<section data-role="content"><!-- form-->
 			<ul data-role="listview">
-				<li><label for="name">Exercise name:</label>
-					<input type="text" id="name"></input></li>
+				<li><label for="rungName">Exercise name:</label>
+					<input type="text" id="rungName"></input></li>
 				<li><label for="interval">Interval (in times/day):</label>
 					<input type="text" id="interval"></input></li>
-				<li><label for="goal">Make this a goal (yes or no):</label>
-					<input type="text" id="goal"></input></li>
+				<li><fieldset data-role="controlgroup" data-type="horizontal">
+				        <legend>Track as goal?</legend>
+				        <input type="radio" name="radio-choice" id="radio-choice-a" value="on" checked="checked">
+				        <label for="radio-choice-a">Yes</label>
+				        <input type="radio" name="radio-choice" id="radio-choice-b" value="off">
+				        <label for="radio-choice-b">No</label>
+				    </fieldset>
 			</ul>
 		</section>
-		
+
 		<section data-role="fieldcontain">
 			<input type="submit" value="Submit" />
 			<br />
-			<input type="reset" value="Clear Form" />
+			<input id="clearFormButton" type="reset" value="Clear Form" />
 		</section>	
 
 		<footer data-role="navbar">
