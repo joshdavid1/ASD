@@ -9,8 +9,48 @@ $('#main').on('pageinit',function() {
 });
 
 $('#addPage').on('pageinit',function() {
-        var showRungs = function(){
+
+	$("#showLadder").click(function() {
+	  alert("Handler for Show Ladder Button called.");
+	});
+
+	//Save Function
+
+	// var saveRung = function(){
+	// console.log("inside saveRung function");
+	//   var goal = getgoal();
+	  
+	//   var newrung = {};
+	//   newrung.rung = $('rung').value;
+	//   newrung.interval = $('interval').value;
+	//   newrung.goal = goal;
+	  
+	//   rungs.push(newrung);
+	//   location.href="#home";
+	//   $('list').innerHTML = "";
+	// };
+
+	$("#saveRung").click(function() {
+	  alert("Handler for Save Button called.");
+	});
+
+
+	//Clear rungs
+	$("#clearFormButton").click(function() {
+	  alert("Handler for Clear Form Button called.");
+	});
+
+	$("#clearDataButton").click(function() {
+	  alert("Handler for Clear Data Button called.");
+	});
+
+$('#ladderView').on('pageinit',function() {
+    var showRungs = function(){
+
+
 console.log("in showRungs function");
+
+
 	for(var i=0, len=rungs.length; i<len; i++){
 	console.log("in rung for loop, cycle " + i);
 		var newLi = document.createElement('li');
@@ -29,8 +69,6 @@ console.log("in showRungs function");
 	}
 };
 
-var display = document.querySelector("#display");
-display.addEventListener("click", showrungs);
 
 //Check status of radio button
 
@@ -45,38 +83,4 @@ console.log("inside getGoal function");
 	};
 	return status;
 };
-
-//Save Function
-
-var saveRung = function(){
-console.log("inside saveRung function");
-  var goal = getgoal();
-  
-  var newrung = {};
-  newrung.rung = $('rung').value;
-  newrung.interval = $('interval').value;
-  newrung.goal = goal;
-  
-  rungs.push(newrung);
-  location.href="#home";
-  $('list').innerHTML = "";
-};
-
-var save = document.querySelector("#submitrung");
-save.addEventListener("click", saverung);
-
-
-//Clear rungs
-var clearRungs = function(){
-console.log("clear button pressed");
-  	rungs.length = 0;
-  	$('list').innerHTML = "";
-};
-
-var clear = document.querySelector("#clearDataButton");
-clear.addEventListener("click", clearRungs);
-});
-
-$('#options').on('pageinit',function() {
-        // Put jQuery in here for the options page.
 });
