@@ -42,7 +42,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 		<p>Maximize your workout!</p>
 		<!-- horizontal line goes here -->
 
-		<section data-role="content"><!-- navigation -->
+		<section data-role="content"><!-- primary page navigation -->
 			<ul data-role="listview">
 				<li><a href="#addPage">Add</a></li>
 				<li><a href="#options">Options</a></li>
@@ -94,13 +94,31 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 
 	</article>
 
+	<article data-role="page" id="ladderView">
+		
+		<header data-role="header">
+			<h1>Current Ladder</h1>
+		</header><!-- title -->
+
+		<section><!-- View area for stored data -->
+			<ul id="portal">
+				<!-- use jQuery to make list of stored data here. -->
+			</ul>
+		</section>
+
+		<footer data-role="navbar">
+			<a data-rel="back">Back</a>
+		</footer>
+
+	</article>
+
 	<article data-role="page" id="options">
 		
 		<header data-role="header">
 			<h1>Options</h1>
 		</header><!-- title -->
 
-		<section data-role="content"><!-- navigation -->
+		<section data-role="content"><!-- primary page navigation -->
 			<ul data-role="listview">
 				<li><a href="#">Push notifications</a></li>
 				<li><a href="#">Fitness resources</a></li>
@@ -120,7 +138,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 			<h1>Discover and Connect!</h1>
 		</header><!-- title -->
 
-		<section data-role="content"><!-- navigation -->
+		<section data-role="content"><!-- primary page navigation -->
 			<ul data-role="listview">
 				<li><a href="#aboutApp">About The App</a></li>
 				<li><a href="#aboutAuthor">About The Author</a></li>
@@ -139,7 +157,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 			<h1>About The App</h1>
 		</header><!-- title -->
 
-		<section data-role="content"><!-- navigation -->
+		<section data-role="content"><!-- primary page navigation -->
 			<p>This app is intended to help you maximize your workout efficiency by spreading exercise reps out throughout the day.</p>
 			<ul data-role="listview">
 				<li>Link 1</li>
@@ -159,7 +177,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 			<h1>About The Author</h1>
 		</header><!-- title -->
 
-		<section data-role="content"><!-- navigation -->
+		<section data-role="content"><!-- primary page navigation -->
 			<p>My name is Josh Wilcox. I am a student at Full Sail University in the Mobile Development BS degree program.</p>
 			<ul data-role="listview">
 				<li><a href="#connect">Make social connections with me here!</a></li>
@@ -178,7 +196,7 @@ Topic: converting from VFW CRUD to jQuery and JQM. -->
 			<h1>Get Social</h1>
 		</header><!-- title -->
 
-		<section data-role="content"><!-- navigation -->
+		<section data-role="content"><!-- primary page navigation -->
 			<ul data-role="listview">
 				<li><a href="http://www.twitter.com/jdwilcox1">Follow me on Twitter</a></li>
 				<li><a href="http://www.facebook.com/wilcox.josh">Add me on Facebook</a></li>
