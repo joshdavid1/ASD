@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+ Author: Josh Wilcox
+Class: ASD with Doug Arley (Mar '13)
+Week: Project 3
+Topic: jQuery, JQM, AJAX, CouchDB 
+
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Customer App</title>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta http-equiv="cleartype" content="on">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+</head> 
+<body> 
+<body> 
+	<article data-role="page" id="main">
+
+		<header data-role="header">
+			<h1>Customer App</h1>
+		</header>
+		
+		<p>Track your customers!</p>
+
+		<section data-role="content"> primary page navigation 
+			<ul data-role="listview">
+				<li><a href="#addPage">Add</a></li>
+				<li><a href="#viewPage">View</a></li>
+			</ul>
+		</section>
+
+		<footer data-role="navbar">
+			<p>Footer goes here.</p>
+		</footer>
+
+	</article>
+
+	<article data-role="page" id="addPage">
+		
+		<header data-role="header">
+			<h1>Add New Customer</h1>
+		</header>
+
+		<section data-role="content">
+			<button id="clearDB">Erase All Stored Customers</button>
+			<button id="showCustomers">See All Customers</button>
+		</section>
+
+		<section data-role="content">
+			<ul data-role="listview">
+				<li>
+					<label for="name">Customer name:</label>
+					<input type="text" id="name"></input>
+				</li>
+				<li>
+					<label for="company">Company where they work:</label>
+					<input type="text" id="company"></input>
+				</li>
+				<li>
+					<fieldset data-role="controlgroup" data-type="horizontal">
+				        <legend>Did they convert from the trial to a paid subscription?</legend>
+				        <input type="radio" name="converted" id="converted-true" value="on" checked="checked">
+				        <label for="converted-true">Yes</label>
+				        <input type="radio" name="converted" id="converted-false" value="off">
+				        <label for="converted-false">No</label>
+				    </fieldset>
+				</li>
+				<li>
+					<label for="OS">Operating System:</label>
+					<input type="text" id="OS"></input>
+				</li>
+				<li>
+					<label for="age">Customer age (18-100):</label>
+					<input type="number" id="age" min="18" max="100"></input>
+				</li>
+			</ul>
+		</section>
+
+		<section data-role="content">
+			<input type="submit" value="Submit" id="saveCustomer" />
+			<input id="clearFormButton" type="reset" value="Clear Form" />
+		</section>	
+
+		<footer data-role="navbar">
+			<a data-rel="back">Back</a>
+		</footer>
+
+	</article>
+	<article data-role="page" id="viewPage">
+		
+		<header data-role="header">
+			<h1>View Current Customers</h1>
+		</header>
+
+		<section data-role="content">
+			<button id="viewPCustomers">Show Personal Clients</button>
+			<button id="viewBCustomers">Show Business Clients</button>
+		</section>
+		
+		<section data-role="content">
+			<ul id="listCustomers" data-role="listview">
+				
+			</ul>
+		</section>
+
+		<footer data-role="navbar">
+			<a data-rel="back">Back</a>
+		</footer>
+	</article>
+
+	 JavaScript under here 
+		<script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script src="main.js" type="text/javascript"></script> 
+	</body>
+</html>
