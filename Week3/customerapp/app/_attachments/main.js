@@ -32,7 +32,7 @@ $('#viewPage').on('pageinit',function() {
 			"url": "_view/personal",
 			"dataType": "json",
 			"success": function(data){
-				$('#listCustomers').clear;
+				$('#listCustomers').children().remove('li');
 				$.each(data.rows, function(index, personal){
 					var converted = personal.value.converted;
 					var company = personal.value.company;
@@ -54,7 +54,7 @@ $('#viewPage').on('pageinit',function() {
 			"url": "_view/business",
 			"dataType": "json",
 			"success": function(data){
-				$('#listCustomers').clear;
+				$('#listCustomers').children().remove('li');
 				$.each(data.rows, function(index, business){
 					var converted = business.value.converted;
 					var company = business.value.company;
