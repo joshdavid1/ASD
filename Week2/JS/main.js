@@ -9,9 +9,32 @@ $('#main').on('pageinit',function() {
 });
 
 $('#addPage').on('pageinit',function() {
-        // Put jQuery in here for the add page, which contains the form.
+
+    $("#showCustomers").click(function() {
+		alert("All customers shown.");
+		//Display database
+	});
+
+	$("#saveCustomer").click(function() {
+		alert("Customer saved.");
+		//Save Function
+	});
+
+	$("#clearFormButton").click(function() {
+		alert("Form reset.");
+		//Reset Form
+	});
+
+	$("#clearDataButton").click(function() {
+		alert("Database erased.");
+		//Erase database
+	});
 });
 
-$('#options').on('pageinit',function() {
-        // Put jQuery in here for the options page.
+$('#viewPage').on('pageinit',function() {
+	//Click on an entry
+	//Edit an entry
+		//Save entry to database
+		//Delete entry from database
+	//Erase database
 });
