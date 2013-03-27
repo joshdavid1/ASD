@@ -1,12 +1,15 @@
-$('#main').on('pageinit',function() {
-        // Put jQuery in here for the home page.
+$('#main').live('pageshow',function() {
+	$.couch.db("customers").view("customersApp/business", {
+		success: function(data) {
+			console.log(data);
+		}
+	});
 });
 
 $('#addPage').on('pageinit',function() {
 
     $("#showCustomers").click(function() {
-		alert("All customers shown.");
-		//Display database
+		window.location = '#viewPage';
 	});
 
 	$("#saveCustomer").click(function() {
@@ -23,6 +26,13 @@ $('#addPage').on('pageinit',function() {
 		alert("Database erased.");
 		//Erase database
 	});
+	
+	function resetForm($form) {
+    	$form.find('input:text, input:password, input:file, select, textarea').val('');
+    	$form.find('input:radio, input:checkbox')
+    	     .removeAttr('checked').removeAttr('selected');
+	}
+	
 });
 
 $('#viewPage').on('pageinit',function() {
@@ -32,7 +42,7 @@ $('#viewPage').on('pageinit',function() {
 			"url": "_view/personal",
 			"dataType": "json",
 			"success": function(data){
-				$('#listCustomers').children().remove('li');
+				$('#listCustomers').empty();
 				$.each(data.rows, function(index, personal){
 					var converted = personal.value.converted;
 					var company = personal.value.company;
@@ -54,7 +64,7 @@ $('#viewPage').on('pageinit',function() {
 			"url": "_view/business",
 			"dataType": "json",
 			"success": function(data){
-				$('#listCustomers').children().remove('li');
+				$('#listCustomers').empty();
 				$.each(data.rows, function(index, business){
 					var converted = business.value.converted;
 					var company = business.value.company;
