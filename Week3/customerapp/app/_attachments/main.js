@@ -21,19 +21,19 @@ $('#addPage').on('pageinit',function() {
 		$('#newCustomer').clearForm()
 	});
 	
-		$.fn.clearForm = function() {
-  			return this.each(function() {
-	    	var type = this.type, tag = this.tagName.toLowerCase();
-	    	if (tag == 'form')
-	    	  return $(':input',this).clearForm();
-	    	if (type == 'text' || tag == 'textarea')
-	    	  this.value = '';
-	    	else if (type == 'radio')
-	    	  $(this).attr('checked', $(this).data('default')).checkboxradio("refresh");
-	    	else if (type == 'number')
-	    	  $(this).val($(this).data('default')).slider("refresh");
-	  		});
-		};
+	$.fn.clearForm = function() {
+  		return this.each(function() {
+    	var type = this.type, tag = this.tagName.toLowerCase();
+	    if (tag == 'form')
+	   	  return $(':input',this).clearForm();
+	   	if (type == 'text' || tag == 'textarea')
+	   	  this.value = '';
+	   	else if (type == 'radio')
+    	  $(this).attr('checked', $(this).data('default')).checkboxradio("refresh");
+	    else if (type == 'number')
+	   	  $(this).val($(this).data('default')).slider("refresh");
+	  	});
+	};
 	
 });
 
