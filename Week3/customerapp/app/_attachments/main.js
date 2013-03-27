@@ -14,24 +14,26 @@ $('#addPage').on('pageinit',function() {
 
 	$("#saveCustomer").click(function() {
 		alert("Customer saved.");
-		//Save Function
+		//Form submission
 	});
 
 	$("#clearFormButton").click(function() {
-		alert("Form reset.");
-		//Reset Form
-	});
-
-	$("#clearDB").click(function() {
-		alert("Database erased.");
-		//Erase database
+		$('#newCustomer').clearForm()
 	});
 	
-	function resetForm($form) {
-    	$form.find('input:text, input:password, input:file, select, textarea').val('');
-    	$form.find('input:radio, input:checkbox')
-    	     .removeAttr('checked').removeAttr('selected');
-	}
+		$.fn.clearForm = function() {
+  			return this.each(function() {
+	    	var type = this.type, tag = this.tagName.toLowerCase();
+	    	if (tag == 'form')
+	    	  return $(':input',this).clearForm();
+	    	if (type == 'text' || tag == 'textarea')
+	    	  this.value = '';
+	    	else if (type == 'radio')
+	    	  $(this).attr('checked', $(this).data('default')).checkboxradio("refresh");
+	    	else if (type == 'number')
+	    	  $(this).val($(this).data('default')).slider("refresh");
+	  		});
+		};
 	
 });
 
@@ -84,5 +86,10 @@ $('#viewPage').on('pageinit',function() {
 	//Edit an entry
 		//Save entry to database
 		//Delete entry from database
+		
 	//Erase database
+	$("#clearDB").click(function() {
+		alert("Database erased.");
+		//Erase database
+	});
 });

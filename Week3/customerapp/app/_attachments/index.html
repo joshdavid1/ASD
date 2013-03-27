@@ -56,7 +56,7 @@
 				<li>
 					<fieldset data-role="controlgroup" data-type="horizontal">
 				        <legend>Customer class:</legend>
-				        <input type="radio" name="customerClass" id="class-personal" value="on" checked="checked">
+				        <input type="radio" name="customerClass" id="class-personal" value="on" data-default="checked" checked="checked">
 				        <label for="class-personal">Personal</label>
 				        <input type="radio" name="customerClass" id="class-business" value="off">
 				        <label for="class-business">Business</label>
@@ -69,7 +69,7 @@
 				<li>
 					<fieldset data-role="controlgroup" data-type="horizontal">
 				        <legend>Did they convert from the trial to a paid subscription?</legend>
-				        <input type="radio" name="converted" id="converted-true" value="on" checked="checked">
+				        <input type="radio" name="converted" id="converted-true" value="on" data-default="checked" checked="checked">
 				        <label for="converted-true">Yes</label>
 				        <input type="radio" name="converted" id="converted-false" value="off">
 				        <label for="converted-false">No</label>
@@ -77,7 +77,7 @@
 				</li>
 				<li>
 					<fieldset data-role="controlgroup" data-type="horizontal">
-				        <input type="radio" name="OS" id="os-mc" value="on" checked="checked">
+				        <input type="radio" name="OS" id="os-mc" value="on" data-default="checked" checked="checked">
 				        <label for="os-mc">Mac OSX</label>
 				        <input type="radio" name="OS" id="os-pc" value="off">
 				        <label for="os-pc">Windows PC</label>
@@ -85,7 +85,7 @@
 				</li>
 				<li>
 					<label for="age">Customer age (18-60):</label>
-					<input type="range" name="age" id="age-slider" value="25" min="18" max="60" data-highlight="true" />
+					<input type="range" name="age" id="age-slider" value="25" data-default="25" min="18" max="60" data-highlight="true" />
 				</li>
 			</ul>
 			</form>
@@ -93,7 +93,7 @@
 
 		<section data-role="content">
 			<input type="submit" value="Submit" id="saveCustomer" />
-			<input id="clearFormButton" type="reset" value="Clear Form" />
+			<input type="reset" value="Clear Form" id="clearFormButton" />
 		</section>	
 
 		<footer data-role="navbar">
