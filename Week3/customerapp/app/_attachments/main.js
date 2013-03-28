@@ -48,11 +48,12 @@ $('#viewPage').on('pageinit',function() {
 					var converted = personal.value.converted;
 					var company = personal.value.company;
 					var name = personal.value.name;
+					if (converted == true)
+						var decide = "has";
+					else
+						var decide = "has not";
 					$('#listCustomers').append(
-						$('<li>').append(
-							$('<a>').attr("href", "#")
-								.text(name)
-						)
+						$('<li><a>').append(name + " from " + company + " " + decide + " converted to a paid subscription." + </a></li>)
 					);
 				});
 				$('#listCustomers').listview('refresh');
@@ -70,11 +71,13 @@ $('#viewPage').on('pageinit',function() {
 					var converted = business.value.converted;
 					var company = business.value.company;
 					var name = business.value.name;
+					if (converted == true)
+						var decide = "has";
+					else
+						var decide = "has not";
+						
 					$('#listCustomers').append(
-						$('<li>').append(
-							$('<a>').attr("href", "#")
-								.text(name)
-						)
+						$('<li><a>').append(name + " from " + company + " " + decide + " converted to a paid subscription." + </a></li>)
 					);
 				});
 				$('#listCustomers').listview('refresh');

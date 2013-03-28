@@ -48,7 +48,7 @@
 			<p>All customers entered here must have at least a trial account.</p>
 			
 			<form id="newCustomer" action="#" method="post">
-			<ul data-role="listview">
+			<ul data-role="listview" >
 				<li>
 					<label for="firstName">Customer's first name:</label>
 					<input type="text" id="firstName" placeholder="John Smith"></input>
@@ -64,7 +64,7 @@
 				</li>
 				<li>
 					<label for="company">Company where they work:</label>
-					<input type="text" id="company"></input>
+					<input type="text" id="company" placeholder="Microsoft"></input>
 				</li>
 				<li>
 					<fieldset data-role="controlgroup" data-type="horizontal">
@@ -85,7 +85,7 @@
 				</li>
 				<li>
 					<label for="age">Customer age (18-60):</label>
-					<input type="range" name="age" id="age-slider" value="25" data-default="25" min="18" max="60" data-highlight="true" />
+					<input type="range" name="age" id="age-slider" value="30" data-default="30" min="18" max="60" data-highlight="true" />
 				</li>
 			</ul>
 			</form>
@@ -113,11 +113,12 @@
 		</section>
 		
 		<section data-role="content">
-			<ul id="listCustomers" data-role="listview">
+			<ul id="listCustomers" data-role="listview" data-role="collapsible">
 				
 			</ul>
-			
-			
+		</section>
+		
+		<section data-role="content">
 			<button id="clearDB">Erase All Stored Customers</button>
 		</section>
 
