@@ -1,9 +1,23 @@
 $('#main').live('pageshow',function() {
-	$.couch.db("customers").view("customersApp/business", {
+	$.couch.db("customers").view("customersApp/_all_docs", {
 		success: function(data) {
 			console.log(data);
 		}
 	});
+	
+	var urlVars = function(){
+		var urlData = $($.mobile.activePage).data("url");
+		var urlParts = urlData.split('?');
+		var urlPairs = urlParts[1].split('&');
+		var urlValues = {};
+		for(var pair in urlPairs){
+			var keyValue = urlPairs[pair].split('=');
+			var key = decodeURIComponent(keyValue[0]);
+			var value = decodeURIComponent(keyValue[1]);
+			urlValues[key] = value;
+		}
+	return urlValues;
+	};
 });
 
 $('#addPage').on('pageinit',function() {
@@ -45,6 +59,7 @@ $('#viewPage').on('pageinit',function() {
 			"success": function(data){
 				$('#listCustomers').empty();
 				$.each(data.rows, function(index, personal){
+					var id = personal.value.id;
 					var converted = personal.value.converted;
 					var company = personal.value.company;
 					var name = personal.value.name;
@@ -52,8 +67,12 @@ $('#viewPage').on('pageinit',function() {
 						var decide = "has";
 					else
 						var decide = "has not";
+						
 					$('#listCustomers').append(
-						$('<li><a>').append(name + " from " + company + " " + decide + " converted to a paid subscription." + </a></li>)
+						$('<li>').append(
+							$('<a>').attr("href", "details.html?details=" + id)
+								.html('<p>' + name + '</p>' + '<p>' + company + '</p>')
+						)
 					);
 				});
 				$('#listCustomers').listview('refresh');
@@ -68,6 +87,7 @@ $('#viewPage').on('pageinit',function() {
 			"success": function(data){
 				$('#listCustomers').empty();
 				$.each(data.rows, function(index, business){
+					var id = business.value.id;
 					var converted = business.value.converted;
 					var company = business.value.company;
 					var name = business.value.name;
@@ -77,13 +97,17 @@ $('#viewPage').on('pageinit',function() {
 						var decide = "has not";
 						
 					$('#listCustomers').append(
-						$('<li><a>').append(name + " from " + company + " " + decide + " converted to a paid subscription." + </a></li>)
+						$('<li>').append(
+							$('<a>').attr("href", "details.html?details=" + id)
+								.html('<p>' + name + '</p>' + '<p>' + company + '</p>')
+						)
 					);
 				});
 				$('#listCustomers').listview('refresh');
 			}
 		});
 	});
+	// + '<p>' + decide + " converted to a paid subscription." + '</p>' + '</li>'
 	//Click on an entry
 	//Edit an entry
 		//Save entry to database
