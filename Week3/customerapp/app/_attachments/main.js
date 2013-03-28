@@ -34,7 +34,6 @@ $('#addPage').on('pageinit',function() {
 	   	  $(this).val($(this).data('default')).slider("refresh");
 	  	});
 	};
-	
 });
 
 $('#viewPage').on('pageinit',function() {

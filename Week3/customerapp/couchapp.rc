@@ -4,7 +4,7 @@
       "db": "http://127.0.0.1:5984/customers"
     },
     "cloudant": {
-      "db": "https://selivessiouldonststaisto:Yt2AY2Wm0oMB6BkXpWNqlXCT@joshdavid1.cloudant.com/customer_data"
+      "db": "https://thstregstsimestenearriso:eyy3LA1RjT36SNGDbsHeoEtl@joshdavid1.cloudant.com/customer_data"
     }
   }
 }
