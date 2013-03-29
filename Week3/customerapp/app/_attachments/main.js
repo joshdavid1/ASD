@@ -2,7 +2,7 @@ $('#main').on('pageshow', function() {
 	
 });
 
-$('#formPage').on('pageshow',function() {
+$('#formPage').on('pageinit',function() {
 
     $("#showCustomers").click(function() {
 		window.location = '#viewPage';
@@ -25,10 +25,85 @@ $('#formPage').on('pageshow',function() {
 	   	  $(this).val($(this).data('default')).slider("refresh");
 	  	});
 	};
-
+	
+	
+	
 	$("#saveCustomer").click(function() {
 		alert("Customer saved.");
 		//Form submission
+		
+// Not able to implement this yet!
+function saveData()
+{	
+	var urlVars = parseUrlData($($.mobile.activePage).data('url'));
+
+	if(urlVars){
+		var customerID = urlVars['id'];
+		var	customerRev = urlVars['rev2'];
+	}
+
+	var formInfo = {},
+		itemsToParse = $('.item'),
+		i = 0;
+
+		formInfo.type = "formInfo";
+		formInfo.name = $('#name').val();
+		formInfo.company = $('#company').val();
+		formInfo.date = $('#date').val();
+		formInfo.details = $('#details').val();
+		formInfo.age = $('#age').val();
+
+	if(customerID){
+		formInfo._id = customerID;
+		formInfo._rev = customerRev;
+
+		$.couch.db('customers').saveDoc(formInfo, {
+			success: function(){
+				alert('Customer data updated!');
+				window.location = 'index.html';
+			}
+		});
+	}else{
+		$.couch.db('customers').saveDoc(formInfo, {
+			success: function(){
+				alert('Form Info has been saved!');
+				window.location = 'index.html';
+			}
+		});
+	}	
+	return false;
+}
+
+// Not able to implement this yet!
+function editPage(event)
+{	
+	$('#newCustomer').validate({
+		submitHandler: function(){saveData();},
+		errorPlacement: function(error, element) {
+			error.insertAfter($(element).parent());
+	   }
+	});
+
+	var urlData = parseUrlData($($.mobile.activePage).data('url')),
+		append = '';
+
+	if(urlData && urlData['id']){
+		$.couch.db('customers').view('customersApp/formInfos', {
+			key: urlData['id'],
+			success: function(data){
+				var current = data.rows[0].value;
+
+				$("#saveCustomer").data('storageId',data.rows[0].key); 
+				$("#name").val(current.name);
+				$("#company").val(current.company);
+				$("#trial").val(current.trial);
+				$("#convert").val(current.convert);
+				$("#age").val(current.age);
+
+			}
+		});
+	}
+}
 	});
 	
 	
@@ -77,7 +152,7 @@ $(document).on('pageshow', '#details', function() {
 		// Edit button event handling.
 		$("#editOne").off();
 		$(document).on('click', '#editOne', function() {
-			$.couch.db("customers").removeDoc(
+			$.couch.db("customers").saveDoc(
 				{_id:customerID, _rev: customerRev},
 				{success: function() {alert('Going to the EDIT form now. Please wait...');}}
 			)
