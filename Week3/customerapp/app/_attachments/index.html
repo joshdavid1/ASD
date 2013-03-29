@@ -32,75 +32,7 @@
 		</footer>
 
 	</article>
-
-	<article data-role="page" id="addPage">
-		
-		<header data-role="header">
-			<h1>New Customer Form</h1>
-		</header>
-
-		<section data-role="content">
-			<button id="showCustomers">See All Customers</button>
-		</section>
-
-		<section data-role="fieldcontain">
-			<p>Please fill out this form about your new customer.</p>
-			<p>All customers entered here must have at least a trial account.</p>
-			
-			<form id="newCustomer" action="#" method="post">
-			<ul data-role="listview" >
-				<li>
-					<label for="firstName">Customer's first name:</label>
-					<input type="text" id="firstName" placeholder="John Smith"></input>
-				</li>
-				<li>
-					<fieldset data-role="controlgroup" data-type="horizontal">
-				        <legend>Customer class:</legend>
-				        <input type="radio" name="customerClass" id="class-personal" value="on" data-default="checked" checked="checked">
-				        <label for="class-personal">Personal</label>
-				        <input type="radio" name="customerClass" id="class-business" value="off">
-				        <label for="class-business">Business</label>
-				    </fieldset>
-				</li>
-				<li>
-					<label for="company">Company where they work:</label>
-					<input type="text" id="company" placeholder="Microsoft"></input>
-				</li>
-				<li>
-					<fieldset data-role="controlgroup" data-type="horizontal">
-				        <legend>Did they convert from the trial to a paid subscription?</legend>
-				        <input type="radio" name="converted" id="converted-true" value="on" data-default="checked" checked="checked">
-				        <label for="converted-true">Yes</label>
-				        <input type="radio" name="converted" id="converted-false" value="off">
-				        <label for="converted-false">No</label>
-				    </fieldset>
-				</li>
-				<li>
-					<fieldset data-role="controlgroup" data-type="horizontal">
-				        <input type="radio" name="OS" id="os-mc" value="on" data-default="checked" checked="checked">
-				        <label for="os-mc">Mac OSX</label>
-				        <input type="radio" name="OS" id="os-pc" value="off">
-				        <label for="os-pc">Windows PC</label>
-				    </fieldset>
-				</li>
-				<li>
-					<label for="age">Customer age (18-60):</label>
-					<input type="range" name="age" id="age-slider" value="30" data-default="30" min="18" max="60" data-highlight="true" />
-				</li>
-			</ul>
-			</form>
-		</section>
-
-		<section data-role="content">
-			<input type="submit" value="Submit" id="saveCustomer" />
-			<input type="reset" value="Clear Form" id="clearFormButton" />
-		</section>	
-
-		<footer data-role="navbar">
-			<a data-rel="back">Back</a>
-		</footer>
-
-	</article>
+	
 	<article data-role="page" id="viewPage">
 		
 		<header data-role="header">

@@ -1,34 +1,11 @@
-$('#main').live('pageshow',function() {
-	$.couch.db("customers").view("customersApp/_all_docs", {
-		success: function(data) {
-			console.log(data);
-		}
-	});
+$('#main').on('pageshow', function() {
 	
-	var urlVars = function(){
-		var urlData = $($.mobile.activePage).data("url");
-		var urlParts = urlData.split('?');
-		var urlPairs = urlParts[1].split('&');
-		var urlValues = {};
-		for(var pair in urlPairs){
-			var keyValue = urlPairs[pair].split('=');
-			var key = decodeURIComponent(keyValue[0]);
-			var value = decodeURIComponent(keyValue[1]);
-			urlValues[key] = value;
-		}
-	return urlValues;
-	};
 });
 
-$('#addPage').on('pageinit',function() {
+$('#formPage').on('pageshow',function() {
 
     $("#showCustomers").click(function() {
 		window.location = '#viewPage';
-	});
-
-	$("#saveCustomer").click(function() {
-		alert("Customer saved.");
-		//Form submission
 	});
 
 	$("#clearFormButton").click(function() {
@@ -48,9 +25,67 @@ $('#addPage').on('pageinit',function() {
 	   	  $(this).val($(this).data('default')).slider("refresh");
 	  	});
 	};
+
+	$("#saveCustomer").click(function() {
+		alert("Customer saved.");
+		//Form submission
+	});
+	
+	
 });
 
-$('#viewPage').on('pageinit',function() {
+var urlVars = function(){
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+	if (urlParts[1] && urlParts[1].length > 0) {
+		var urlPairs = urlParts[1].split('&');
+		var urlValues = {};
+		for(var pair in urlPairs){
+			var keyValue = urlPairs[pair].split('=');
+			var key = decodeURIComponent(keyValue[0]);
+			var value = decodeURIComponent(keyValue[1]);
+			urlValues[key] = value;
+		}
+	return urlValues;
+	}
+};
+
+$(document).on('pageshow', '#details', function() {
+	if (urlVars()) {
+		var customerID = urlVars()["id"];
+		var customerRev = urlVars()["rev2"];
+		
+		$.couch.db("customers").view("customersApp/all", {
+			key: customerID,
+			success: function(data) {
+				$('#customerDetails').append('<li><h3>' + "This customer is " + data.rows[0].value.age + " years old." + '</h3></li>');
+				$('#customerDetails').append('<li><a href="#" data-id=" + customerID + " data-rev=" + customerRev + " id="deleteOne">Delete this customer</a></li>');
+				$('#customerDetails').append('<li><a href="formPage.html" data-id=" + customerID + " data-rev=" + customerRev + " id="editOne">Edit this customer</a></li>');
+			}
+		});
+		//Delete button event handling.
+		$("#deleteOne").off();
+		$(document).on('click', '#deleteOne', function() {
+			var ask = confirm("BRO. Do you even delete?");
+			if(ask) {
+				$.couch.db("customers").removeDoc(
+					{_id:customerID, _rev: customerRev},
+					{success: function() {alert('DELETED, bro.');}}
+				)
+			}
+		});
+		// Edit button event handling.
+		$("#editOne").off();
+		$(document).on('click', '#editOne', function() {
+			$.couch.db("customers").removeDoc(
+				{_id:customerID, _rev: customerRev},
+				{success: function() {alert('Going to the EDIT form now. Please wait...');}}
+			)
+		});
+	}
+});
+
+$('#viewPage').on('pageinit', function() {
 
 	$("#viewPCustomers").click(function() {
 		$.ajax({
@@ -60,18 +95,15 @@ $('#viewPage').on('pageinit',function() {
 				$('#listCustomers').empty();
 				$.each(data.rows, function(index, personal){
 					var id = personal.value.id;
-					var converted = personal.value.converted;
+					var rev = personal.value.rev;
 					var company = personal.value.company;
 					var name = personal.value.name;
-					if (converted == true)
-						var decide = "has";
-					else
-						var decide = "has not";
+					var type = personal.value.type;
 						
 					$('#listCustomers').append(
 						$('<li>').append(
-							$('<a>').attr("href", "details.html?details=" + id)
-								.html('<p>' + name + '</p>' + '<p>' + company + '</p>')
+							$('<a>').attr("href", "details.html?id=" + id + "&rev2=" + rev)
+								.html('<h3>' + type + '</h3>' + '<p>' + name + '</p>' + '<p>' + company + '</p>')
 						)
 					);
 				});
@@ -88,18 +120,15 @@ $('#viewPage').on('pageinit',function() {
 				$('#listCustomers').empty();
 				$.each(data.rows, function(index, business){
 					var id = business.value.id;
-					var converted = business.value.converted;
+					var rev = business.value.rev;
 					var company = business.value.company;
 					var name = business.value.name;
-					if (converted == true)
-						var decide = "has";
-					else
-						var decide = "has not";
+					var type = business.value.type;
 						
 					$('#listCustomers').append(
 						$('<li>').append(
-							$('<a>').attr("href", "details.html?details=" + id)
-								.html('<p>' + name + '</p>' + '<p>' + company + '</p>')
+							$('<a>').attr("href", "details.html?id=" + id + "&rev2=" + rev)
+								.html('<h3>' + type + '</h3>' + '<p>' + name + '</p>' + '<p>' + company + '</p>')
 						)
 					);
 				});
