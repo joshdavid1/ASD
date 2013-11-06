@@ -12,7 +12,7 @@ $('#addPage').on('pageinit',function() {
 
     $("#showCustomers").click(function() {
 		alert("All customers shown.");
-		//Display database
+		//Display database button
 	});
 
 	$("#saveCustomer").click(function() {
