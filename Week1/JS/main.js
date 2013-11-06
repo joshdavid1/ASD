@@ -1,7 +1,7 @@
 /*
 Author: Josh Wilcox
 Class: ASD with Doug Arley (March '13)
-Week: Project 2
+Week: Project 1
 Topic: converting from VFW CRUD to jQuery and JQM.
 */
 $('#main').on('pageinit',function() {
